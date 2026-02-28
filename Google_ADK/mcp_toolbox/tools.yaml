@@ -1,0 +1,28 @@
+sources:
+  my-bigquery-source:
+    kind: bigquery
+    project: groovy-shore-484408-c5
+    location: us-central1
+tools:
+  search-customers-by-id:
+    kind: bigquery-sql
+    source: my-bigquery-source
+    description: Search for customers based on ID.
+    parameters:
+      - name: customer_id
+        type: string
+        description: The ID of the customer.
+    statement: SELECT * FROM `groovy-shore-484408-c5.adk_mcp.customers` WHERE `Customer Id` = @customer_id;
+  search-customer-by-city:
+    kind: bigquery-sql
+    source: my-bigquery-source
+    description: Search for customer based on city.
+    parameters:
+      - name: city
+        type: string
+        description: The city of the customer.
+    statement: SELECT * FROM `groovy-shore-484408-c5.adk_mcp.customers` WHERE `City` = @city;
+toolsets:
+  my-toolset:
+    - search-customers-by-id
+    - search-customer-by-city

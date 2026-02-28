@@ -1,0 +1,40 @@
+Keep adk web --port 8080 running when using below APIs:
+
+Retrieve specific session id for user
+GET http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions/{session_id}
+List all sessions for user
+GET http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions
+Create specific session_id for user
+POST http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions/{session_id}
+Create new session with automatic session_id for user
+GET http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions
+Deletes specific session id
+DELETE http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions/{session_id}
+
+to run a particular agent
+curl -X POST http://localhost:8080/run
+Body:
+{
+    "appName":
+    "userId":
+    "sessionId":
+    "newMessage":
+    {
+        "role":
+        "parts": [
+          {  "text":"Tell me about employee 123" }
+        ]
+    }
+}
+
+ curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    https://us-central1-aiplatform.googleapis.com/v1/projects/groovy-shore-484408-c5/locations/us-central1/reasoningEngines/3225082009034424320:query \
+    -d '{"class_method": "create_session", "input": {"user_id": "csk_khachane"}}'
+
+curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    http://localhost:8080/apps/google_search_agent/users/cskhachane/sessions \
+    -d '{"class_method": "create_session", "input": {"user_id": "csk_khachane"}}'

@@ -1,0 +1,344 @@
+Agent Development Kit
+ADK is a Python framework designed to streamline the development of applications powered by Large Language Models (LLMs). 
+It offers robust building blocks for creating agents that can reason, plan, utilize tools, interact dynamically with users, and collaborate effectively within a team.
+
+https://google.github.io/adk-docs/get-started/python/
+
+
+Needs extra quotas (not good for free tier)
+aistudio apikey - csk.khachane
+AIzaSyBcrDdmvmBRaUee4mTpYNpmG7HJm1pOdXk
+project id  :  gen-lang-client-0777869303
+
+Get started with Agent Development Kit (ADK): https://partner.skills.google/catalog_lab/32017
+Empower ADK agents with tools: https://partner.skills.google/catalog_lab/32018
+Build Multi-Agent Systems with ADK: https://partner.skills.google/catalog_lab/32044
+Use Model Context Protocol (MCP) Tools with ADK Agents: https://partner.skills.google/catalog_lab/32353
+Deploy ADK agents to Agent Engine: https://partner.skills.google/catalog_lab/32019
+
+python --version
+python -m venv venv
+pip install google-adk
+
+
+Installing collected packages: pywin32, zipp, websockets, watchdog, urllib3, uritemplate, tzdata, typing-extensions, tenacity, sqlparse, sniffio, six, rpds-py, PyYAML, python-multipart, python-dotenv, pyparsing, pyjwt, pycparser, pyasn1, pyarrow, protobuf, packaging, mmh3, MarkupSafe, idna, httpx-sse, h11, greenlet, graphviz, google-crc32c, docstring_parser, distro, colorama, cloudpickle, charset_normalizer, certifi, attrs, annotated-types, annotated-doc, aiosqlite, tzlocal, typing-inspection, sqlalchemy, rsa, requests, referencing, python-dateutil, pydantic-core, pyasn1-modules, proto-plus, opentelemetry-proto, Mako, importlib-metadata, httplib2, httpcore, grpcio, googleapis-common-protos, google-resumable-media, click, cffi, anyio, uvicorn, starlette, pydantic, opentelemetry-exporter-otlp-proto-common, opentelemetry-api, jsonschema-specifications, httpx, grpcio-status, grpc-interceptor, google-cloud-audit-log, cryptography, alembic, sse-starlette, pydantic-settings, opentelemetry-semantic-conventions, jsonschema, grpc-google-iam-v1, google-auth, fastapi, authlib, opentelemetry-sdk, mcp, google-auth-httplib2, google-api-core, opentelemetry-resourcedetector-gcp, opentelemetry-exporter-otlp-proto-http, google-genai, google-cloud-core, google-api-python-client, google-cloud-trace, google-cloud-storage, google-cloud-speech, google-cloud-secret-manager, google-cloud-resource-manager, google-cloud-pubsub, google-cloud-monitoring, google-cloud-iam, google-cloud-discoveryengine, google-cloud-bigtable, google-cloud-bigquery-storage, google-cloud-bigquery, google-cloud-appengine-logging, opentelemetry-exporter-gcp-trace, opentelemetry-exporter-gcp-monitoring, google-cloud-spanner, google-cloud-logging, google-cloud-aiplatform, sqlalchemy-spanner, opentelemetry-exporter-gcp-logging, google-adk
+
+
+Successfully installed Mako-1.3.10 MarkupSafe-3.0.3 PyYAML-6.0.3 aiosqlite-0.22.1 alembic-1.18.3 annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.12.1 attrs-25.4.0 authlib-1.6.6 certifi-2026.1.4 cffi-2.0.0 charset_normalizer-3.4.4 click-8.3.1 cloudpickle-3.1.2 colorama-0.4.6 cryptography-46.0.4 distro-1.9.0 docstring_parser-0.17.0 fastapi-0.123.10 google-adk-1.23.0 google-api-core-2.29.0 google-api-python-client-2.188.0 google-auth-2.48.0 google-auth-httplib2-0.3.0 google-cloud-aiplatform-1.135.0 google-cloud-appengine-logging-1.8.0 google-cloud-audit-log-0.4.0 google-cloud-bigquery-3.40.0 google-cloud-bigquery-storage-2.36.0 google-cloud-bigtable-2.35.0 google-cloud-core-2.5.0 google-cloud-discoveryengine-0.13.12 google-cloud-iam-2.21.0 google-cloud-logging-3.13.0 google-cloud-monitoring-2.29.0 google-cloud-pubsub-2.34.0 google-cloud-resource-manager-1.16.0 google-cloud-secret-manager-2.26.0 google-cloud-spanner-3.62.0 google-cloud-speech-2.36.0 google-cloud-storage-3.9.0 google-cloud-trace-1.18.0 google-crc32c-1.8.0 google-genai-1.61.0 google-resumable-media-2.8.0 googleapis-common-protos-1.72.0 graphviz-0.21 greenlet-3.3.1 grpc-google-iam-v1-0.14.3 grpc-interceptor-0.15.4 grpcio-1.76.0 grpcio-status-1.76.0 h11-0.16.0 httpcore-1.0.9 httplib2-0.31.2 httpx-0.28.1 httpx-sse-0.4.3 idna-3.11 importlib-metadata-8.7.1 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-1.26.0 mmh3-5.2.0 opentelemetry-api-1.37.0 opentelemetry-exporter-gcp-logging-1.11.0a0 opentelemetry-exporter-gcp-monitoring-1.11.0a0 opentelemetry-exporter-gcp-trace-1.11.0 opentelemetry-exporter-otlp-proto-common-1.37.0 opentelemetry-exporter-otlp-proto-http-1.37.0 opentelemetry-proto-1.37.0 opentelemetry-resourcedetector-gcp-1.11.0a0 opentelemetry-sdk-1.37.0 opentelemetry-semantic-conventions-0.58b0 packaging-26.0 proto-plus-1.27.1 protobuf-6.33.5 pyarrow-23.0.0 pyasn1-0.6.2 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pydantic-settings-2.12.0 pyjwt-2.11.0 pyparsing-3.3.2 python-dateutil-2.9.0.post0 python-dotenv-1.2.1 python-multipart-0.0.22 pywin32-311 referencing-0.37.0 requests-2.32.5 rpds-py-0.30.0 rsa-4.9.1 six-1.17.0 sniffio-1.3.1 sqlalchemy-2.0.46 sqlalchemy-spanner-1.17.2 sqlparse-0.5.5 sse-starlette-3.2.0 starlette-0.50.0 tenacity-9.1.2 typing-extensions-4.15.0 typing-inspection-0.4.2 tzdata-2025.3 tzlocal-5.3.1 uritemplate-4.2.0 urllib3-2.6.3 uvicorn-0.40.0 watchdog-6.0.0 websockets-15.0.1 zipp-3.23.0    
+
+Create a new agent project
+adk create my_agent
+Choose a model for the root agent:
+1. gemini-2.5-flash
+2. Other models (fill later)
+Choose model (1, 2): 1
+1. Google AI
+2. Vertex AI
+Choose a backend (1, 2): 2
+Enter Google Cloud project ID:
+Enter Google Cloud region:
+
+my_agent project created.
+my_agent/
+    agent.py      # main agent code
+    .env          # API keys or project IDs
+    __init__.py
+
+adk run my_agent
+
+from google.adk.agents.llm_agent import Agent
+
+# Mock tool implementation
+def get_current_time(city: str) -> dict:
+    """Returns the current time in a specified city."""
+    return {"status": "success", "city": city, "time": "10:30 AM"}
+
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='root_agent',
+    description="Tells the current time in a specified city.",
+    instruction="You are a helpful assistant that tells the current time in cities. Use the 'get_current_time' tool for this purpose.",
+    tools=[get_current_time],
+)
+
+
+Running agent root_agent, type exit to exit.
+[user]: What can you do?
+[root_agent]: I can tell you the current time in a specified city.
+[user]: Navi Mumbai
+[root_agent]: The current time in Navi Mumbai is 10:30 AM.
+[user]: exit
+
+adk web --port 8080
+ADK Web is not meant for use in production deployments. You should use ADK Web for development and debugging purposes only.
+
+Event -> request -> response
+
+Build a multi-tool agent
+
+mkdir multi_tool_agent/
+create __init__.py
+create agent.py
+create .env
+
+Authentication credentials (2 ways)
+1. Gemini -Google cloud vertex AI
+
+Authenticate to Google Cloud from the terminal by running 
+gcloud auth application-default login.
+
+When using Python, open the .env file located inside (multi_tool_agent/).
+
+GOOGLE_GENAI_USE_VERTEXAI=TRUE
+GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+GOOGLE_CLOUD_LOCATION=LOCATION
+
+Run using 3 ways:-
+DEV UI (adk web --port 8080)
+Terminal (adk run multi_tool_agent)
+API Server (adk api server ) - 
+enables you to create a local FastAPI server in a single command, 
+enabling you to test local cURL requests before you deploy your agent.
+By default, the server runs on http://localhost:8000.
+
+
+(venv) PS C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK> adk run multi_tool_agent
+Log setup complete: C:\Users\CSUNIL~1.KHA\AppData\Local\Temp\agents_log\agent.20260203_234813.log
+To access latest log: tail -F C:\Users\CSUNIL~1.KHA\AppData\Local\Temp\agents_log\agent.20260203_234813.log
+C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK\venv\Lib\site-packages\google\adk\cli\cli.py:189: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  credential_service = InMemoryCredentialService()
+C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK\venv\Lib\site-packages\google\adk\auth\credential_service\in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__()
+Running agent weather_time_agent, type exit to exit.
+[user]: What is the weather now in India ?
+[weather_time_agent]: India is a large country, please specify a city in India you would like to know the weather for.
+[user]: Delhi
+[weather_time_agent]: I am sorry, but I cannot retrieve the weather information for Delhi at this time.
+[user]: Mumbai
+[weather_time_agent]: I am sorry, but I cannot retrieve the weather information for Mumbai at this time.
+[user]: New York 
+[weather_time_agent]: The weather in New York is sunny with a temperature of 25 degrees Celsius (77 degrees Fahrenheit).
+[user]:exit
+
+(venv) PS C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK> adk web multi_tool_agent --port 8080
+INFO:     Started server process [33264]
+INFO:     Waiting for application startup.
+
++-----------------------------------------------------------------------------+
+| ADK Web Server started                                                      |
+|                                                                             |
+| For local testing, access at http://127.0.0.1:8080.                         |
++-----------------------------------------------------------------------------+
+
+INFO:     Application startup complete.
+ERROR:    [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8080): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+INFO:     Waiting for application shutdown.
+
++-----------------------------------------------------------------------------+
+| ADK Web Server shutting down...                                             |
++-----------------------------------------------------------------------------+
+
+(venv) PS C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK> netstat -ano | findstr :8080
+  TCP    127.0.0.1:8080         0.0.0.0:0              LISTENING       18292
+  
+(venv) PS C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK> taskkill /PID 18292 /F
+
+creating new session
+
+Invoke-RestMethod `
+  -Method POST `
+  -Uri "http://localhost:8080/apps/multi_tool_agent/users/u_123/sessions/s_123" `
+  -ContentType "application/json" `
+  -Body '{"key1":"value1","key2":42}'
+
+
+
+id             : s_123
+appName        : multi_tool_agent
+userId         : u_123
+state          : @{key1=value1; key2=42}
+events         : {}
+lastUpdateTime : 1770143610.1210368
+
+Sessions created via the REST API do NOT automatically appear in the ADK Web UI session list.
+
+The Web UI and the REST API use the same backend, but the UI only shows sessions it creates or explicitly loads.
+
+how to check whether it exists:
+Invoke-RestMethod `
+  -Method POST `
+  -Uri "http://localhost:8080/apps/multi_tool_agent/users/u_123/sessions/s_123/runs" `
+  -ContentType "application/json" `
+  -Body '{"input":"Hello from API"}'
+
+currently no API call for delete in ADK
+
+delete specific session
+Remove-Item `
+  -Recurse `
+  -Force `
+  "C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK\.adk\sessions\multi_tool_agent\u_123\s_123"
+
+
+
+Advanced tools:-
+Tool Definition & Usage: 
+Crafting Python functions (tools) that grant agents specific abilities (like fetching data) and instructing agents on how to use them effectively.
+
+✅ Multi-LLM Flexibility: 
+Configuring agents to utilize various leading LLMs (Gemini, GPT-4o, Claude Sonnet) via LiteLLM integration, allowing you to choose the best model for each task.
+
+✅ Agent Delegation & Collaboration: 
+Designing specialized sub-agents and enabling automatic routing (auto flow) of user requests to the most appropriate agent within a team.
+
+✅ Session State for Memory: 
+Utilizing Session State and ToolContext to enable agents to remember information across conversational turns, leading to more contextual interactions.
+
+✅ Safety Guardrails with Callbacks: 
+Implementing before_model_callback and before_tool_callback to inspect, modify, or block requests/tool usage based on predefined rules, enhancing application safety and control.
+
+asyncio.run() - often needed when running as a standalone .py script or in specific notebook setups.
+
+libraries :- google-adk, litellm
+
+supported models check
+https://ai.google.dev/gemini-api/docs/models#model-variations
+
+Weather Bot agent team
+using session service and runner
+
+Session service - stores conversation history and state
+
+InMemorySessionService - implementation that stores everything in memory.
+						 Keeps track of messages exchanged.
+						 non-persistent storage
+
+Runner - engine that orchestrates the interaction flow
+		 takes user input, routes it to the appropriate agent, 
+		 manages calls to the LLM and tools based on the agent's logic
+		 
+
+
+(venv) PS C:\Users\c.sunil.khachane\Downloads\IMP_Training\ADK>python weather_bot_agent_team/agent.py
+
+Libraries imported.
+Environment configured.
+
+--- Tool: get_weather called for city: New York ---
+{'status': 'success', 'report': 'The weather in New York is sunny with a temperature of 25°C.'}
+--- Tool: get_weather called for city: Paris ---
+{'status': 'error', 'error_message': "Sorry, I don't have weather information for 'Paris'."}
+
+Agent 'weather_agent_v1' created using model 'gemini-2.5-flash'.
+
+Session created: App='weather_tutorial_app', User='user_1', Session='session_001'
+
+Runner created for agent 'weather_agent_v1'.
+
+>>> User Query: What is the weather like in London?
+  [Event] Author: weather_agent_v1, 
+		  Type: Event, 
+		  Final: False, 
+		  Content: parts=[Part(
+  function_call=FunctionCall(
+    args={
+      'city': 'London'
+    },
+    id='adk-f3bab6e3-8cdd-4bb3-a435-264dfbe0a6f1',
+    name='get_weather'
+  ),
+  thought_signature=b'\n\xc6\x01\x01\x8f=k_e\x9f\x87\x86\xa7@,%b6P\xec\x86\xf2\xf2lM\x90E/\xe1\x94\x1e\x9by\xb5\xca\xb3O\x8e\xbd\xb4\'\xff^Z\xb68\x1f\xb1\xd2*3@\xb1\xa7\xe0\x85d\xa1@\xfc\xb8\x00\x82nRU\x05\xb6U\x98_\x8d"\xb6\xf9\x12\'\xf5\xdd{\xe6[\xa6a\x06e\xaaN\x1db\x9e\x90\xae\xc1A=\xe6...'
+)] role='model'
+
+--- Tool: get_weather called for city: London ---
+
+  [Event] Author: weather_agent_v1, 
+  Type: Event, 
+  Final: False, 
+  Content: parts=[Part(
+  function_response=FunctionResponse(
+    id='adk-f3bab6e3-8cdd-4bb3-a435-264dfbe0a6f1',
+    name='get_weather',
+    response={
+      'report': "It's cloudy in London with a temperature of 15°C.",
+      'status': 'success'
+    }
+  )
+)] role='user'
+  [Event] Author: weather_agent_v1, 
+  Type: Event, 
+  Final: True, 
+  Content: parts=[Part(
+  text='The weather in London is cloudsy with a temperature of 15°C.'
+)] role='model'
+<<< Agent Response: The weather in London is cloudy with a temperature of 15°C.
+
+>>> User Query: How about Paris?
+  [Event] Author: weather_agent_v1, Type: Event, Final: False, Content: parts=[Part(
+  function_call=FunctionCall(
+    args={
+      'city': 'Paris'
+    },
+    id='adk-2f3de1d8-72ea-4b04-90aa-d85c2fa7c1e1',
+    name='get_weather'
+  ),
+  thought_signature=b'\n\x9a\x01\x01\x8f=k_\x9e6=\x9d\xf2\x0e\xf2\xb6\xcf\xba$\x0b\xac\xcb\x08\xba^H\x9f\xe7LI\xda\x05\n\xdb\x94\x03\xae\x19\x8a\xd0\x7f_\xeak\x9b\xac\x9e\x89\xe2X\xd0\xb6Fw\x10\xa0\x11\xcbiE\\\xfc\x111\x8c\x88\xac\xb5\x89Cl\xef_\xdf\xcf\xf8-WU\xc0\x1d#U\x9e_\x81(%\xd1w\xedp\x85kv&\xfb...'
+)] role='model'
+--- Tool: get_weather called for city: Paris ---
+  [Event] Author: weather_agent_v1, Type: Event, Final: False, Content: parts=[Part(
+  function_response=FunctionResponse(
+    id='adk-2f3de1d8-72ea-4b04-90aa-d85c2fa7c1e1',
+    name='get_weather',
+    response={
+      'error_message': "Sorry, I don't have weather information for 'Paris'.",
+      'status': 'error'
+    }
+  )
+)] role='user'
+  [Event] Author: weather_agent_v1, Type: Event, Final: True, Content: parts=[Part(
+  text="Sorry, I don't have weather information for Paris."
+)] role='model'
+<<< Agent Response: Sorry, I don't have weather information for Paris.
+
+>>> User Query: Tell me the weather in New York
+  [Event] Author: weather_agent_v1, Type: Event, Final: False, Content: parts=[Part(
+  function_call=FunctionCall(
+    args={
+      'city': 'New York'
+    },
+    id='adk-56679db0-3c7b-4877-a6f4-ae4f72cdad9e',
+    name='get_weather'
+  ),
+  thought_signature=b'\n\x94\x01\x01\x8f=k_\xd0\xd3\xa2\xf84\x82\x8e\x17&v\xfc \xff\xeaWq\xec\xd0D{\x9b\xdaR\x98n\x7f@\xe2\x19?\x11\x8e;\x08\x18\x98\xdb\x8e\r\xf6k\xcaEz\xa0\xec\xa0\x01\xd8"\x9eAbQ\x0f\x80\xe2\xd5\x14ZM\x99\x91W_`\x19\x8e\xa9)\x96n\xb3\xac+\xd9\xca"\x9d\x19U`\x17\x00\x97E$\x9b\xa7...'
+)] role='model'
+--- Tool: get_weather called for city: New York ---
+  [Event] Author: weather_agent_v1, Type: Event, Final: False, Content: parts=[Part(
+  function_response=FunctionResponse(
+    id='adk-56679db0-3c7b-4877-a6f4-ae4f72cdad9e',
+    name='get_weather',
+    response={
+      'report': 'The weather in New York is sunny with a temperature of 25°C.',
+      'status': 'success'
+    }
+  )
+)] role='user'
+  [Event] Author: weather_agent_v1, Type: Event, Final: True, Content: parts=[Part(
+  text='The weather in New York is sunny with a temperature of 25°C.'
+)] role='model'
+<<< Agent Response: The weather in New York is sunny with a temperature of 25°C.
+
+
+
+3 calls because:
+1. Model decides to call a tool
+2. Python tool runs, ADK sends the result back to the models
+3. Model produces the final answer
+
+This statement in code prints all internal steps:-
+print(f"  [Event] Author: {event.author}, Type: {type(event).__name__}, Final: {event.is_final_response()}, Content: {event.content}")
+
+print only response in production using:-
+
+if event.is_final_response():
+    print(event.content.parts[0].text)
+

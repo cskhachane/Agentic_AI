@@ -1,0 +1,374 @@
+MCP - Model Context Protocol 
+
+An open-source standard that lets AI applications connect directly to external systems.
+
+Plug and plag servers available for :
+github
+bigquery
+postgresql
+Google drive
+filesystem
+brave search
+playwright
+
+Real world use cases
+Personalised AI assistant
+Enterprise chatbot
+AI powered IDE
+customer support
+
+
+https://docs.paypal.ai/developer/tools/ai/mcp-quickstart
+
+
+Setting up MCP Tools for PayPal in Gemini CLI
+ 
+Open Cloud Shell Terminal and navigate to the Gemini directory:
+ cd ~/.gemini
+ 
+List files to confirm settings.json exists:
+ ls
+ 
+Open the settings.json file for editing or create
+vi settings.json
+
+client id: AQGp_mG_KmrghpEb3HS0sizzklxJwTuujr7u-UAmOiO8azkuMlyVuEE1Aoe8chMssZ2xviGkcZLdI23r
+secret: EH34apml4zolT0jakEW_4-bH_JUH8ABRrHTjkFbgzUoEOFcsH2VlEg7RVW0zsjakhywK25iTYeoE02SM
+
+curl -v https://api-m.sandbox.paypal.com/v1/oauth2/token -u "<CLIENT_ID>:<SECRET>" -d "grant_type=client_credentials“
+
+curl -v https://api-m.sandbox.paypal.com/v1/oauth2/token \-u "AQGp_mG_KmrghpEb3HS0sizzklxJwTuujr7u-UAmOiO8azkuMlyVuEE1Aoe8chMssZ2xviGkcZLdI23r:EH34apml4zolT0jakEW_4-bH_JUH8ABRrHTjkFbgzUoEOFcsH2VlEg7RVW0zsjakhywK25iTYeoE02SM" \-d "grant_type=client_credentials"
+
+
+c_sunil_khachane@cloudshell:~/.gemini (agbg-agentic-ai-hackathon-tg)$ curl -v https://api-m.sandbox.paypal.com/v1/oauth2/token \-u "AQGp_mG_KmrghpEb3HS0sizzklxJwTuujr7u-UAmOiO8azkuMlyVuEE1Aoe8chMssZ2xviGkcZLdI23r:EH34apml4zolT0jakEW_4-bH_JUH8ABRrHTjkFbgzUoEOFcsH2VlEg7RVW0zsjakhywK25iTYeoE02SM" \-d "grant_type=client_credentials"
+
+* Host api-m.sandbox.paypal.com:443 was resolved.
+* IPv6: (none)
+* IPv4: 151.101.3.1, 151.101.67.1, 151.101.131.1, 151.101.195.1
+*   Trying 151.101.3.1:443...
+* Connected to api-m.sandbox.paypal.com (151.101.3.1) port 443
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256 / X25519 / RSASSA-PSS
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: C=US; ST=California; L=San Jose; O=PayPal, Inc.; CN=api-m.paypal.com
+*  start date: Aug 13 00:00:00 2025 GMT
+*  expire date: Sep 13 23:59:59 2026 GMT
+*  subjectAltName: host "api-m.sandbox.paypal.com" matched cert's "api-m.sandbox.paypal.com"
+*  issuer: C=US; O=DigiCert Inc; CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+*  SSL certificate verify ok.
+*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 1: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 2: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* using HTTP/2
+* Server auth using Basic with user 'AQGp_mG_KmrghpEb3HS0sizzklxJwTuujr7u-UAmOiO8azkuMlyVuEE1Aoe8chMssZ2xviGkcZLdI23r'
+* [HTTP/2] [1] OPENED stream for https://api-m.sandbox.paypal.com/v1/oauth2/token
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: api-m.sandbox.paypal.com]
+* [HTTP/2] [1] [:path: /v1/oauth2/token]
+* [HTTP/2] [1] [authorization: Basic QVFHcF9tR19LbXJnaHBFYjNIUzBzaXp6a2x4SndUdXVqcjd1LVVBbU9pTzhhemt1TWx5VnVFRTFBb2U4Y2hNc3NaMnh2aUdrY1pMZEkyM3I6RUgzNGFwbWw0em9sVDBqYWtFV180LWJIX0pVSDhBQlJySFRqa0ZiZ3pVb0VPRmNzSDJWbEVnN1JWVzB6c2pha2h5d0syNWlUWWVvRTAyU00=]
+* [HTTP/2] [1] [user-agent: curl/8.5.0]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-length: 29]
+* [HTTP/2] [1] [content-type: application/x-www-form-urlencoded]
+> POST /v1/oauth2/token HTTP/2
+> Host: api-m.sandbox.paypal.com
+> Authorization: Basic QVFHcF9tR19LbXJnaHBFYjNIUzBzaXp6a2x4SndUdXVqcjd1LVVBbU9pTzhhemt1TWx5VnVFRTFBb2U4Y2hNc3NaMnh2aUdrY1pMZEkyM3I6RUgzNGFwbWw0em9sVDBqYWtFV180LWJIX0pVSDhBQlJySFRqa0ZiZ3pVb0VPRmNzSDJWbEVnN1JWVzB6c2pha2h5d0syNWlUWWVvRTAyU00=
+> User-Agent: curl/8.5.0
+> Accept: */*
+> Content-Length: 29
+> Content-Type: application/x-www-form-urlencoded
+> 
+< HTTP/2 200 
+< content-type: application/json
+< server: nginx
+< access-control-expose-headers: Server-Timing
+< cache-control: max-age=0, no-cache, no-store, must-revalidate
+< paypal-debug-id: f104954f5a4f7
+< pragma: no-cache
+< server-timing: traceparent;desc="00-0000000000000000000f104954f5a4f7-d2a5219883ad6586-01"
+< x-paypal-token-service: IAAS
+< http_x_pp_az_locator: ccg18.slc
+< strict-transport-security: max-age=31536000; includeSubDomains
+< edge-control: max-age=0
+< accept-ranges: bytes
+< date: Wed, 04 Feb 2026 15:22:08 GMT
+< via: 1.1 varnish
+< x-served-by: cache-qpg1268-QPG
+< x-cache: MISS
+< x-cache-hits: 0
+< x-timer: S1770218528.512722,VS0,VE901
+< vary: Accept-Encoding
+< content-length: 1806
+< 
+{"scope":"https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/subscriptions/confirm-payment https://uri.paypal.com/services/payments/client-payments-eligibility https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/vault/payment-tokens/readwrite https://uri.paypal.com/services/applications/webhooks https://uri.paypal.com/services/pricing/exchange-currency/read https://uri.paypal.com/services/credit/client-offer-presentment/read https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid Braintree:Vault https://uri.paypal.com/services/disputes/read-seller https://uri.paypa* Connection #0 to host api-m.sandbox.paypal.com left intact
+l.com/services/payments/orders/client_sdk_orders_api https://uri.paypal.com/services/payments/refund https://uri.paypal.com/services/disputes/create https://uri.paypal.com/services/pricing/quote-exchange-rates/read https://uri.paypal.com/services/documents/disputes/download https://uri.paypal.com/services/billing-agreements https://uri.paypal.com/services/checkout/payment-resources https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions","access_token":"A21AAI4Ibf-uze464qKaxDC29NTe3OMu55LDyNfaa6aOPOglSE_U0uwAYNcTBFEHdL2PKJD7XqoYkf6xRF1q1xJwMDfQi5tPg","token_type":"Bearer","app_id":"APP-4UU67634EK763445D","expires_in":32400,"nonce":"2026-02-04T15:22:08Z5o9Ve3EIfyMuEl_HxTYGsQIB56W5MfvaqzwI-_gwq9I"}
+
+
+access_token : "A21AAI4Ibf-uze464qKaxDC29NTe3OMu55LDyNfaa6aOPOglSE_U0uwAYNcTBFEHdL2PKJD7XqoYkf6xRF1q1xJwMDfQi5tPg"
+
+settings.json
+
+{
+  "mcpServers": {
+    "paypal-mcp-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.sandbox.paypal.com/sse",
+        "--header",
+        "Authorization: Bearer A21AAI4Ibf-uze464qKaxDC29NTe3OMu55LDyNfaa6aOPOglSE_U0uwAYNcTBFEHdL2PKJD7XqoYkf6xRF1q1xJwMDfQi5tPg"
+      ]
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Default"
+  },
+  "preferredEditior": "windsurf"
+}
+
+c_sunil_khachane@cloudshell:~/.gemini (agbg-agentic-ai-hackathon-tg)$ vi settings.json
+Paste the JSON into settings.json and save the file.
+
+c_sunil_khachane@cloudshell:~/.gemini (agbg-agentic-ai-hackathon-tg)$ gemini
+
+Autorisation key required with google account for first time to use gemini
+
+███            █████████  ██████████ ██████   ██████ █████ ██████   █████ █████
+░░░███         ███░░░░░███░░███░░░░░█░░██████ ██████ ░░███ ░░██████ ░░███ ░░███
+  ░░░███      ███     ░░░  ░███  █ ░  ░███░█████░███  ░███  ░███░███ ░███  ░███
+    ░░░███   ░███          ░██████    ░███░░███ ░███  ░███  ░███░░███░███  ░███
+     ███░    ░███    █████ ░███░░█    ░███ ░░░  ░███  ░███  ░███ ░░██████  ░███
+   ███░      ░░███  ░░███  ░███ ░   █ ░███      ░███  ░███  ░███  ░░█████  ░███
+ ███░         ░░█████████  ██████████ █████     █████ █████ █████  ░░█████ █████
+░░░            ░░░░░░░░░  ░░░░░░░░░░ ░░░░░     ░░░░░ ░░░░░ ░░░░░    ░░░░░ ░░░░░
+
+Tips for getting started:
+1. Ask questions, edit files, or run commands.
+2. Be specific for the best results.
+3. /help for more information.
+
+⠋ Connecting to MCP servers... (1/2) - Waiting for: VertexMcpServer
+
+ Using: 2 GEMINI.md files | 2 MCP servers
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ >   Type your message or @path/to/file                                                                                                                     │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ ~/.gemini                                                  no sandbox (see /docs)                                                   Auto (Gemini 2.5) /model
+
+> /mcp
+
+Configured MCP servers:
+
+🟢 paypal-mcp-server - Ready (31 tools, 1 resource)
+  Tools:
+  - accept_dispute_claim
+  - cancel_sent_invoice
+  - cancel_subscription
+  - create_invoice
+  - create_order
+  - create_product
+  - create_refund
+  - create_shipment_tracking
+  - create_subscription
+  - create_subscription_plan
+  - generate_invoice_qr_code
+  - get_dispute
+  - get_invoice
+  - get_merchant_insights
+  - get_order
+  - get_refund
+  - get_shipment_tracking
+  - list_disputes
+  - list_invoices
+  - list_products
+  - list_subscription_plans
+  - list_transactions
+  - pay_order
+  - send_invoice
+  - send_invoice_reminder
+  - show_product_details
+  - show_subscription_details
+  - show_subscription_plan_details
+  - update_product
+  - update_shipment_tracking
+  - update_subscription
+  Resources:
+  - paypal-checkout-disclaimer (legal://paypal-checkout-disclaimer)
+
+🟢 VertexMcpServer (from vertex) - Ready (5 tools)
+  Tools:
+  - create_prompt
+  - delete_prompt
+  - list_prompts
+  - read_prompt
+  - update_prompt
+
+
+Tripartite Architecture
+
+MCP host (Coordinator)
+AI application (IDE,Agent,Claude desktop)
+
+MCP client (Connector)
+connected to server via JSON_RPC 2.0 protocol (Data layer)
+
+MCP Server (Context Provider)
+
+In our example:-
+MCP server is Paypal
+MCP client is Google gemini
+MCP Host is AI Agent
+
+MCP client to server connected via 2 ways (Transport layers):-
+1. Local (stdio transport) - best local security and high performance
+   Lifespan: persistent till host app is open
+   
+2. Remote (SSE/HTTP transport) SSE deprecated - distributed systems - HTTP POST for client to server messages
+   Lifespan: transient/session based (full handshake and re-initialization required)
+
+
+Data layer JSON_RPC primitives:-
+Resources - read only data (GET endpoints) "method": "resources/listcity"
+Tools     - executable functions (POST endpoints) "method": "tools/getWeather"
+Prompts   - reusable data templates for LLM interactions "method": "prompts/getcityweather"
+
+doc strings contain information about the tool in MCP.
+
+In case a dependency in required in implementation, an additional information needs to be given, 
+then it cannot go in doc string, rather it should be given in prompt itself.
+
+JSON RPC request payload example:
+
+{
+  "jsonrpc": "2.0",
+  "method": "tools/getWeather",
+  "params": {
+  "name": "weather_current",
+  "arguments":{
+    "city": "London"
+	}
+  },
+  "id": 1
+}
+
+
+Server implementation strategy:-
+
+1. Low level SDK (high control less velocity)
+2. FASTMCP       (most pythonic way using decorators)        
+3. MCP Toolboxes (less control high velocity)
+
+Security and Authentication using:-
+OAuth 2.1
+Input validation
+Least priviledge policy
+
+Authorization:-
+Human in loop
+Data privacy to restrict sensitive data
+
+Deployment
+local : mcp docker with 8000 port
+Orchestration : using Docker image on cloud run
+create agent registry using cloud build and then expose it on endpoint with endpoint/mcp
+
+
+
+
+gcloud artifacts repositories create remote-mcp-servers \
+--repository-format=docker \
+--location=us-central1 \
+--description="Repository for remote MCP servers" \
+--project=agbg-agentic-ai-hackathon-tg
+
+gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/agbg-agentic-ai-hackathon-tg/remote-mcp-servers/mcp-server-chaitanya:v01
+
+gcloud run deploy mcp-server \
+--image us-central1-docker.pkg.dev/gbg-agentic-ai-hackathon-tg/remote-mcp-servers/mcp-server-chaitanya:v01 \
+--region=us-central1 \
+--no-allow-unauthenticated
+
+
+{
+  "mcpServers": {
+    "paypal-mcp-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.sandbox.paypal.com/sse",
+        "--header",
+        "Authorization: Bearer <auth_header>"
+      ]
+    }
+  }
+}
+
+
+{
+  "mcpServers": {
+    "paypal-mcp-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.sandbox.paypal.com/http",
+		        "--header",
+        "Authorization: Bearer <auth_header>"
+      ]
+    }
+  }
+}
+
+--MCP server API quick guide
+https://docs.paypal.ai/developer/tools/ai/mcp-quickstart
+
+--create free account on paypal
+https://developer.paypal.com/dashboard/applications/sandbox
+
+-- MCP Toolbox for Databases
+https://googleapis.github.io/genai-toolbox/getting-started/introduction/
+
+
+implementing remote MCP server and along with that studing MCP toolbox for Databases 
+
+-- MCP Toolbox for Databases BQ
+https://googleapis.github.io/genai-toolbox/samples/bigquery/local_quickstart/
+
+https://codelabs.developers.google.com/mcp-toolbox-bigquery-dataset#7
+
+
+set VERSION=0.25.0
+curl -o toolbox.exe "https://storage.googleapis.com/genai-toolbox/v%VERSION%/windows/amd64/toolbox.exe"
+
+toolbox.exe --tools-file "tools.yaml"
+
+(.venv) PS C:\Users\c.sunil.khachane\tools> .\toolbox.exe --tools-file tools.yaml
+2026-02-06T12:35:59.5841866+05:30 INFO "Initialized 1 sources: my-bigquery-source" 
+2026-02-06T12:35:59.5841866+05:30 INFO "Initialized 0 authServices: "
+2026-02-06T12:35:59.5846923+05:30 INFO "Initialized 0 embeddingModels: "
+2026-02-06T12:35:59.5846923+05:30 INFO "Initialized 5 tools: search-hotels-by-name, search-hotels-by-location, book-hotel, update-hotel, cancel-hotel"
+2026-02-06T12:35:59.5846923+05:30 INFO "Initialized 1 toolsets: default"
+2026-02-06T12:35:59.5846923+05:30 INFO "Initialized 0 prompts: "
+2026-02-06T12:35:59.5852312+05:30 INFO "Initialized 1 promptsets: default"
+2026-02-06T12:35:59.5852312+05:30 WARN "wildcard (`*`) allows all origin to access the resource and is not secure. Use it with cautious for public, non-sensitive data, or during local development. Recommended to use `--allowed-origins` flag"
+2026-02-06T12:35:59.5852312+05:30 WARN "wildcard (`*`) allows all hosts to access the resource and is not secure. Use it with cautious for public, non-sensitive data, or during local development. Recommended to use `--allowed-hosts` flag to prevent DNS rebinding attacks"
+2026-02-06T12:35:59.5874316+05:30 INFO "Server ready to serve!"
+
+Server is listening (by default on http://127.0.0.1:5000)

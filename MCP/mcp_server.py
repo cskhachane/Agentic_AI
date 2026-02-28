@@ -1,0 +1,47 @@
+import asyncio
+import time
+import logging
+import json
+import os
+from typing import List, Optional
+
+from fastmcp import FastMCP
+
+
+from google.auth.transport.requests import Request as AuthRequest
+from google.oauth2 import id_token
+import google.auth
+import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
+log_level = os.getenv("LOG_LEVEL", "INFO")
+port = int(os.getenv("PORT", "8080"))
+
+# Configure logging
+logger = logging.getLogger(__name__)
+numeric_level = getattr(logging, log_level, logging.DEBUG)
+logging.basicConfig(format="[%(levelname)s]: %(message)s", level=numeric_level)
+
+# FastMCP setup
+mcp = FastMCP("My MCP Server")
+
+@mcp.tool()
+def get_temperature(city: str) -> str:
+    """Get the current temperature for a city."""
+    return f"The temperature in {city} is 22°C"
+
+@mcp.tool()
+def get_greeting(name: str) -> str:
+    """Get a personalized greeting"""
+    return f"Hello, {name}!"
+
+if __name__ == "__main__":
+    logger.info(f"MCP server started on port {os.getenv('PORT', '8001')}")
+    asyncio.run(
+        mcp.run_async(
+            transport="http",
+            host="127.0.0.1",
+            port=int(os.getenv("PORT", 8001))
+        )
+    )
